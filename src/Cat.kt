@@ -1,13 +1,21 @@
+
 class Cat (val name: String, var age: Int, var weight: Int) {
 
     fun walk() {
         weight--
     }
-    fun eat (){
-        weight ++
+
+    fun eat(amount: Int) {
+        if (weight + amount > 20) {
+            throw IllegalArgumentException("Weight cannot exceed 20!")
+            // Alternatively, if you prefer printing instead of throwing an exception:
+            // println("Error: Weight cannot exceed 20.")
+        } else {
+            weight += amount
+        }
     }
 
     override fun toString() : String {
-        return "Name: $name Age: $age  weight: $weight"
+        return "Name: $name Age: $age weight: $weight"
     }
 }
